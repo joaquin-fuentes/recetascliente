@@ -1,16 +1,15 @@
-body{
-  margin: 0;
-  background-image: url('https://fondosmil.com/fondo/56750.jpg');
-  background-color: rgba(14, 54, 14, 0.496);
-  background-blend-mode: multiply;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
+
 #root{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  background-image: url('https://fondosmil.com/fondo/56750.jpg');
+  background-color: rgba(17, 51, 17, 0.419);
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 .main{
   flex-grow: 1;

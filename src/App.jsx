@@ -1,13 +1,18 @@
-import './App.css'
+import "./App.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Menu from './components/common/Menu';
 
-function App() {
- 
+const App = () => {
+
 
   return (
-    <>
-     Hola mundo
-    </>
-  )
-}
 
-export default App
+    <BrowserRouter>
+      <Menu></Menu>
+    </BrowserRouter>
+
+  );
+};
+
+export default App;
