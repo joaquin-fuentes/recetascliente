@@ -17,16 +17,17 @@ const Menu = () => {
   };
 
   return (
-    <Navbar bg="success" expand="md" className="mb-3">
+    <Navbar  expand="md" className="mb-3 bg-menu">
       <Container fluid>
-        <Navbar.Brand as={Link} to={""} className="text-light">MenuMax</Navbar.Brand>
+        <Navbar.Brand as={Link} to={""} className="text-light">Delicias en la Mesa</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-nav" onClick={toggleExpand} />
         <Navbar.Collapse id="navbar-nav" className={expand ? "show" : ""}>
           <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <NavLink end to={""} className="nav-item nav-link text-light" onClick={handleNavLinkClick}>Ventas</NavLink>
-                  <NavLink end to={""} className="nav-item nav-link text-light" onClick={handleNavLinkClick}>Compras</NavLink>
-                  <NavLink end to={""} className="nav-item nav-link text-light" onClick={handleNavLinkClick}>Productos</NavLink>
-                  <NavLink end to={""} className="nav-item nav-link text-light" onClick={handleNavLinkClick}>Resumen</NavLink>
+                  <NavLink end to={""} className="nav-item nav-link text-light" onClick={handleNavLinkClick}>Inicio</NavLink>
+                  <NavLink end to={""} className="nav-item nav-link text-light" onClick={handleNavLinkClick}>Administrador</NavLink>
+                  <NavLink end to={""} className="nav-item nav-link text-light" onClick={handleNavLinkClick}>Registro</NavLink>
+                  <NavLink end to={""} className="nav-item nav-link text-light" onClick={handleNavLinkClick}>Ingresar</NavLink>
+                  <NavLink end to={""} className="nav-item nav-link text-light" onClick={handleNavLinkClick}>Salir</NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
