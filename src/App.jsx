@@ -5,6 +5,8 @@ import { Container } from "react-bootstrap";
 import Menu from './components/common/Menu';
 import Footer from "./components/common/Footer";
 import Inicio from "./components/views/Inicio";
+import DetalleArticulo from "./components/views/DetalleArticulo";
+import Administrador from "./components/views/Administrador";
 
 const App = () => {
 
@@ -14,6 +16,8 @@ const App = () => {
     <BrowserRouter>
       <Menu></Menu>
       <Inicio></Inicio>
+      <DetalleArticulo></DetalleArticulo>
+      <Administrador></Administrador>
       <Footer></Footer>
     </BrowserRouter>
 
