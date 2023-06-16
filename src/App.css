@@ -26,3 +26,17 @@
 .opacidadCard{
   opacity: 0.9 ;
 }
+.menuHamburguesa{
+  background-color: rgba(0, 0, 0, 0.811) !important;
+}
+.imagenError404{
+  width: 50%;
+}
+.bg-fomrulario {
+  background-color: rgba(56, 56, 56, 0.7)!important;
+  color: white!important;
+  font-weight: bold;
+}
+.tituloLogin{
+  border-bottom: 1px solid white !important;
+}

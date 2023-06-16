@@ -7,6 +7,9 @@ import Footer from "./components/common/Footer";
 import Inicio from "./components/views/Inicio";
 import DetalleArticulo from "./components/views/DetalleArticulo";
 import Administrador from "./components/views/Administrador";
+import Error404 from "./components/views/Error404";
+import Login from "./components/views/Login";
+import CrearArticulo from "./components/views/Articulos/CrearArticulo";
 
 const App = () => {
 
@@ -18,6 +21,10 @@ const App = () => {
       <Inicio></Inicio>
       <DetalleArticulo></DetalleArticulo>
       <Administrador></Administrador>
+      <Error404></Error404> 
+      <Login></Login>
+      <CrearArticulo></CrearArticulo>
+      <DetalleArticulo></DetalleArticulo>
       <Footer></Footer>
     </BrowserRouter>
 

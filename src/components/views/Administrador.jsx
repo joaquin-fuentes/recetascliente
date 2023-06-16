@@ -7,7 +7,7 @@ const Administrador = () => {
         <Container className='main bg-menu text-center my-4 p-3 letraBlanca'>
             <div className='d-flex justify-content-between '>
                 <h3>Administrador de recetas</h3>
-                <Link to={"/administrador/crear"} className={"btn btn-outline-light"} >Agregar</Link>
+                <Link to={"/administrador/crear"} className={"btn btn-outline-light m-1"} >Agregar</Link>
             </div>
             <hr />
             <Table striped responsive bordered hover size="sm" variant="dark">

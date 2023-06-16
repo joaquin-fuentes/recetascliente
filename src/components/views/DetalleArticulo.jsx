@@ -5,7 +5,7 @@ const DetalleArticulo = () => {
         <Container className="main bg-menu text-center my-4 p-3 letraBlanca" >
             <Row className="m-4">
                 <Col xs={12} md={6} className="text-center " >
-                    <img src="https://haycosasmuynuestras.com/wp-content/uploads/2017/10/Huevos-rotos-MEDIANA.jpg" alt="imagen de producto" />
+                    <img src="https://haycosasmuynuestras.com/wp-content/uploads/2017/10/Huevos-rotos-MEDIANA.jpg" alt="imagen de producto" className="w-100" />
                 </Col>
                 <Col xs={12} md={6} >
                     <article className="p-2">

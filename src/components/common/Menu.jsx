@@ -20,7 +20,7 @@ const Menu = () => {
     <Navbar  expand="md" className="mb-3 bg-menu">
       <Container fluid>
         <Navbar.Brand as={Link} to={""} className="text-light">Delicias en la Mesa</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbar-nav" onClick={toggleExpand} />
+        <Navbar.Toggle aria-controls="navbar-nav" onClick={toggleExpand}  className="menuHamburguesa"/>
         <Navbar.Collapse id="navbar-nav" className={expand ? "show" : ""}>
           <Nav className="justify-content-end flex-grow-1 pe-3">
                   <NavLink end to={""} className="nav-item nav-link text-light" onClick={handleNavLinkClick}>Inicio</NavLink>
