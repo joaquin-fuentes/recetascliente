@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 const Articulo = () => {
     return (
@@ -11,7 +12,7 @@ const Articulo = () => {
                     This is a wider card with supporting text below as a natural lead-in
                     to additional content. This content is a little bit longer.
                 </Card.Text>
-                <Button variant="outline-secondary">Ver más</Button>
+                <NavLink to={"/detalleArticulo"} className="btn btn-outline-secondary" >Ver detalle</NavLink>
             </Card.Body>
         </Card>
     );

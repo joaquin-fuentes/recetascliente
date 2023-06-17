@@ -1,10 +1,10 @@
 import { Form, Button, Container, Card } from "react-bootstrap";
-// import { login } from "../helpers/queries";
+import { login } from "../helpers/queries";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2"
 import { useNavigate } from "react-router-dom"
 
-const Login = () => {
+const Login = ({setUsuarioLogueado}) => {
      const {
          register,
          handleSubmit,
@@ -12,30 +12,30 @@ const Login = () => {
          reset
      } = useForm();
 
-    // const navegacion = useNavigate()
+     const navegacion = useNavigate()
 
-    // const onSubmit = (usuario) => {
-    //     login(usuario).then((respuesta) => {
-    //         if (respuesta) {
-    //             //debo loguear al usuario
-    //             sessionStorage.setItem("usuarioLogueado", JSON.stringify(respuesta))
-    //             setUsuarioLogueado(respuesta)
-    //             Swal.fire("Bienvenido", "Ingreso correcto", "success")
-    //             navegacion("/administrador")
+     const onSubmit = (usuario) => {
+         login(usuario).then((respuesta) => {
+             if (respuesta) {
+                 //debo loguear al usuario
+                 sessionStorage.setItem("usuarioLogueado", JSON.stringify(respuesta))
+                 setUsuarioLogueado(respuesta)
+                 Swal.fire("Bienvenido", "Ingreso correcto", "success")
+                 navegacion("/")
 
-    //         } else {
-    //             // mostrar mensaje de error, usuario o password incorrectos
-    //             Swal.fire("Error", "Email o password incorrecto", "error")
-    //         }
-    //     })
-    // }
+             } else {
+                 // mostrar mensaje de error, usuario o password incorrectos
+                 Swal.fire("Error", "Email o password incorrecto", "error")
+             }
+         })
+     }
 
     return (
         <Container className="main ">
             <Card className=" bg-fomrulario my-4 p-5 letraBlanca">
                 <Card.Header as="h5" className="tituloLogin">Login</Card.Header>
                 <Card.Body>
-                    <Form onSubmit={handleSubmit()}>
+                    <Form onSubmit={handleSubmit(onSubmit)}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email</Form.Label>
                             <Form.Control type="email" placeholder="Ingrese un email" maxLength={50} minLength={3} {

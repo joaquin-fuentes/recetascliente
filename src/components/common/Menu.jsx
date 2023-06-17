@@ -1,9 +1,10 @@
 
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink, useNavigate } from "react-router-dom"
 import { useState } from 'react';
+import Swal from "sweetalert2";
 
-const Menu = () => {
+const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
   const [expand, setExpand] = useState(false);
 
   const toggleExpand = () => {
@@ -15,6 +16,33 @@ const Menu = () => {
       setExpand(false);
     }
   };
+  
+  const navegacion = useNavigate()
+
+  const logout = () => {
+      Swal.fire({
+          title: 'Estas seguro?',
+          text: "Seguro que desea cerrar su sesion?",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Si'
+      }).then((result) => {
+          if (result.isConfirmed) {
+              //borrar del sessionstorage
+              sessionStorage.removeItem("usuarioLogueado")
+              setUsuarioLogueado({})
+              navegacion("/")
+              Swal.fire(
+                  'Listo!',
+                  'Sesion cerrada!',
+                  'success'
+              )
+          }
+      })
+
+  }
 
   return (
     <Navbar  expand="md" className="mb-3 bg-menu">
@@ -24,10 +52,15 @@ const Menu = () => {
         <Navbar.Collapse id="navbar-nav" className={expand ? "show" : ""}>
           <Nav className="justify-content-end flex-grow-1 pe-3">
                   <NavLink end to={""} className="nav-item nav-link text-light" onClick={handleNavLinkClick}>Inicio</NavLink>
-                  <NavLink end to={""} className="nav-item nav-link text-light" onClick={handleNavLinkClick}>Administrador</NavLink>
-                  <NavLink end to={""} className="nav-item nav-link text-light" onClick={handleNavLinkClick}>Registro</NavLink>
-                  <NavLink end to={""} className="nav-item nav-link text-light" onClick={handleNavLinkClick}>Ingresar</NavLink>
-                  <NavLink end to={""} className="nav-item nav-link text-light" onClick={handleNavLinkClick}>Salir</NavLink>
+                  {
+                       usuarioLogueado.email ?
+                      <>
+                        <NavLink end to={"/administrador"} className="nav-item nav-link text-light" onClick={handleNavLinkClick}>Administrador</NavLink>
+                        <Button variant="dark" className="nav-item nav-link text-light" onClick={logout}>Salir</Button>
+                     </>
+                        :
+                       <NavLink end to={"/login"} className={"nav-item nav-link text-light"}>Admin</NavLink>
+                  }
           </Nav>
         </Navbar.Collapse>
       </Container>

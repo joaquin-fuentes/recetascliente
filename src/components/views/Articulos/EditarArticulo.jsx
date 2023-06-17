@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import React, { useState } from 'react';
 
 
-const CrearArticulo = () => {
+const EditarArticulo = () => {
 
     const {
         register,
@@ -85,7 +85,7 @@ const CrearArticulo = () => {
 
     return (
         <Container className="main bg-fomrulario my-4 p-5 letraBlanca">
-            <h2>Nuevo Articulo</h2>
+            <h2>Editar Articulo</h2>
             <hr />
             <Form onSubmit={handleSubmit()}>
                 <Form.Group className="mb-3">
@@ -231,11 +231,11 @@ const CrearArticulo = () => {
                     </ol>
                 </Form.Group>
                 <Button variant="primary" type="submit" className="mt-2">
-                    Guardar
+                    Editar
                 </Button>
             </Form>
         </Container>
     );
 };
 
-export default CrearArticulo;
+export default EditarArticulo;
