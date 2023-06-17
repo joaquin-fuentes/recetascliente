@@ -30,10 +30,11 @@ const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
           confirmButtonText: 'Si'
       }).then((result) => {
           if (result.isConfirmed) {
+            // CONSULTAR COMO HACER PARA QUE AL CERRAR LA SESION LA RUTA ME LLEVE AL INCIO, CON ESTE CODIGO LO INTENTO PERO ME LLEVA AL ERROR 404
               //borrar del sessionstorage
+              navegacion("/")
               sessionStorage.removeItem("usuarioLogueado")
               setUsuarioLogueado({})
-              navegacion("/")
               Swal.fire(
                   'Listo!',
                   'Sesion cerrada!',
