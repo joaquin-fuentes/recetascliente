@@ -13,7 +13,7 @@
       {
         "nombreArticulo": "Tortilla de papa",
         "horas": 1,
-        "minutos": 20,
+        "minutos": 30,
         "imagen": "https://lacocinadefrabisa.lavozdegalicia.es/wp-content/uploads/2019/05/tortilla-espa%C3%B1ola.jpg",
         "categoria": "Plato principal",
         "ingredientes": ["sal","lechuga","200grs organo", "etc"],
@@ -23,7 +23,7 @@
       {
         "nombreArticulo": "Flan",
         "horas": 1,
-        "minutos": 20,
+        "minutos": 0,
         "imagen": "https://www.hogarmania.com/archivos/202011/karl6638-flan-expres-xl-1280x720x80xX.jpg",
         "categoria": "Postre",
         "ingredientes": ["Leche","Flan para preparar","200grs azucar", "etc"],

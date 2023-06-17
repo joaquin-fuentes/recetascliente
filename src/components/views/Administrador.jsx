@@ -1,8 +1,28 @@
 import { Table, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ItemArticulo from "./Articulos/ItemArticulo";
+import { obtenerArticulos } from '../helpers/queries';
+import Swal from "sweetalert2"
+import { useEffect, useState } from 'react';
+
+
 
 const Administrador = () => {
+    const [articulos, setArticulos] = useState([])
+
+    // const navegacion = useNavigate()
+
+    useEffect(()=>{
+        obtenerArticulos().then((respuesta)=>{
+            if (respuesta != null){
+                setArticulos(respuesta)
+            } else{
+                Swal.fire("Error", "No se pudo obtener los datos de la API", "error")
+                // navegacion("/error404")
+            }
+        })
+    },[])
+
     return (
         <Container className='main bg-menu text-center my-4 p-3 letraBlanca'>
             <div className='d-flex justify-content-between '>
@@ -21,11 +41,11 @@ const Administrador = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <ItemArticulo></ItemArticulo>
-                    <ItemArticulo></ItemArticulo>
-                    <ItemArticulo></ItemArticulo>
-                    <ItemArticulo></ItemArticulo>
-                    <ItemArticulo></ItemArticulo>
+                    {
+                        articulos.map((articulo)=>{
+                            return <ItemArticulo articulo={articulo} setArticulos={setArticulos} key={articulo.id}></ItemArticulo>
+                        })
+                    }
                 </tbody>
             </Table>
         </Container>

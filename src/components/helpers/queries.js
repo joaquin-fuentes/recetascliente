@@ -31,3 +31,76 @@ export const login = async (usuario)=>{
         return null
     }
 }
+
+export const obtenerArticulos = async ()=>{
+    try {
+        const respuesta = await fetch(URL_ARTICULO)
+        const listaArticulos = await respuesta.json()
+        return listaArticulos
+
+    } catch (error) {
+        console.log(error)
+        return null
+    }
+}
+
+
+export const obtenerArticulo = async (id)=>{
+    try {
+        const respuesta = await fetch(`${URL_ARTICULO}/${id}`)
+        const articuloEditar = await respuesta.json()
+        return articuloEditar
+
+    } catch (error) {
+        console.log(error)
+        return null
+    }
+}
+
+export const consultaBorrarArticulo = async (id)=>{
+    try {
+        const respuesta = await fetch(`${URL_ARTICULO}/${id}` , {
+            method:"DELETE"
+        });
+        // const listaArticulos = await respuesta.json()
+        return respuesta
+
+    } catch (error) {
+        console.log(error)
+        return null
+    }
+}
+
+export const consultaCrearArticulo = async (articulo)=>{
+    try {
+        const respuesta = await fetch(URL_ARTICULO, {
+            method: "POST",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(articulo)
+        });
+        return respuesta
+
+    } catch (error) {
+        console.log(error)
+        return null
+    }
+}
+
+export const consultaEditarArticulo = async (articulo, id)=>{
+    try {
+        const respuesta = await fetch(URL_ARTICULO+"/"+id, {
+            method: "PUT",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(articulo)
+        });
+        return respuesta
+
+    } catch (error) {
+        console.log(error)
+        return null
+    }
+}
