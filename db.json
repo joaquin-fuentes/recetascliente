@@ -1,37 +1,46 @@
 {
     "articulos": [
       {
-        "nombreProducto": "Café",
-        "precio": "500",
+        "nombreArticulo": "Milanesa con pure",
+        "horas": 1,
+        "minutos": 20,
         "imagen": "linkImagen.png",
-        "categoria": "1",
-        "descripcion": "alguna descripcion",
+        "categoria": "Plato principal",
+        "ingredientes": ["sal","pimienta","200grs manteca", "etc"],
+        "procedimiento":["comprar las cosas", "pelar las papas", "hervir 20minutos", "servir"],
         "id": 1
       },
       {
-        "nombreProducto": "media luna 2.0",
-        "precio": "499",
-        "imagen": "linkdeimdfsdfsdfsdfagen.jpg",
-        "categoria": 2,
-        "descripcion": "asdasd",
+        "nombreArticulo": "Tortilla de papa",
+        "horas": 1,
+        "minutos": 20,
+        "imagen": "linkImagen.png",
+        "categoria": "Plato principal",
+        "ingredientes": ["sal","lechuga","200grs organo", "etc"],
+        "procedimiento":["pelar las papas", "hervir 20minutos", "calentar a fuego lento", "servir"],
         "id": 2
       },
       {
-        "nombreProducto": "Te de te",
-        "precio": "150",
-        "imagen": "imagendete.png",
-        "categoria": "2",
-        "descripcion": "bebida caliente",
-        "id": 4
+        "nombreArticulo": "Flan",
+        "horas": 1,
+        "minutos": 20,
+        "imagen": "linkImagen.png",
+        "categoria": "Postre",
+        "ingredientes": ["Leche","Flan para preparar","200grs azucar", "etc"],
+        "procedimiento":["hervir la leche 10 minutos", "Volcar el sobre de flan", "hervir 20minutos", "servir"],
+        "id": 3
       },
       {
-        "nombreProducto": "tortilla",
-        "precio": "50",
-        "imagen": "tortillaimagen.jpg",
-        "categoria": "3",
-        "descripcion": "tortillas finias y gruesas",
-        "id": 6
+        "nombreArticulo": "Tamal",
+        "horas": 1,
+        "minutos": 20,
+        "imagen": "linkImagen.png",
+        "categoria": "Plato de entrada",
+        "ingredientes": ["zapallo","Chala de choclo","200grs maizena", "etc"],
+        "procedimiento":["hervir zapallo", "pelar las papas", "hervir 20minutos", "servir"],
+        "id": 4
       }
+     
     ],
     "usuarios": [
       {

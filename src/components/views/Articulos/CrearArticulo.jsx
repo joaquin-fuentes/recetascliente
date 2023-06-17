@@ -91,7 +91,7 @@ const CrearArticulo = () => {
                 <Form.Group className="mb-3">
                     <Form.Label>Nombre de la receta*</Form.Label>
                     <Form.Control type="text" placeholder="Ej: Cafe" maxLength={30} {
-                        ...register('nombreProducto', {
+                        ...register('nombreArticulo', {
                             required: 'El campo es obligatorio',
                             minLength: {
                                 value: 2,
@@ -108,7 +108,7 @@ const CrearArticulo = () => {
                         })
                     } />
                     <Form.Text className="text-danger">
-                        {errors.nombreProducto?.message}
+                        {errors.nombreArticulo?.message}
                     </Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3">
