@@ -44,6 +44,9 @@
   height: 250px;
 }
 .descripcionArticuloInicio{
-  overflow: hidden; /* Oculta el contenido que se desborda */
-  text-overflow: ellipsis; /* Agrega puntos suspensivos al final del texto */
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Número de líneas permitidas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
