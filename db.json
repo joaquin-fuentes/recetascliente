@@ -2,7 +2,6 @@
   "articulos": [
     {
       "nombreArticulo": "Milanesa con pure",
-      "horas": 1,
       "minutos": 20,
       "imagen": "https://img-global.cpcdn.com/recipes/e3a271511d89f044/400x400cq70/photo.jpg",
       "categoria": "Plato principal",
@@ -23,7 +22,6 @@
     },
     {
       "nombreArticulo": "Flan",
-      "horas": 1,
       "minutos": 0,
       "imagen": "https://www.hogarmania.com/archivos/202011/karl6638-flan-expres-xl-1280x720x80xX.jpg",
       "categoria": "Postre",
@@ -43,29 +41,7 @@
       "id": 2
     },
     {
-      "nombreArticulo": "Flan",
-      "horas": 1,
-      "minutos": 0,
-      "imagen": "https://www.hogarmania.com/archivos/202011/karl6638-flan-expres-xl-1280x720x80xX.jpg",
-      "categoria": "Postre",
-      "descripcion": "Este plato es super rico, se lo recomiendo, y facil de hacer por supuesto, con lo que tenga ne su heladera",
-      "ingredientes": [
-        "Leche",
-        "Flan para preparar",
-        "200grs azucar",
-        "etc"
-      ],
-      "procedimiento": [
-        "hervir la leche 10 minutos",
-        "Volcar el sobre de flan",
-        "hervir 20minutos",
-        "servir"
-      ],
-      "id": 3
-    },
-    {
       "nombreArticulo": "Tamal",
-      "horas": 1,
       "minutos": 20,
       "imagen": "https://st2.depositphotos.com/1692343/5415/i/450/depositphotos_54150499-stock-photo-homemade-corn-and-chicken-tamales.jpg",
       "categoria": "Plato de entrada",
@@ -83,6 +59,43 @@
         "servir"
       ],
       "id": 4
+    },
+    {
+      "nombreArticulo": "Pizza",
+      "minutos": "120",
+      "imagen": "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg",
+      "categoria": "Plato principal",
+      "descripcion": "La pizza es una cena muy rica y facil de preparar, ideal para una juntada con amigos, ver el partido, o una pelicula en buena compañia.",
+      "id": 5
+    },
+    {
+      "nombreArticulo": "Empanadas",
+      "minutos": "120",
+      "imagen": "https://img.freepik.com/fotos-premium/sabrosas-empanadas-carne-picante-empanadas-argentinas_434193-7864.jpg",
+      "categoria": "Plato de entrada",
+      "descripcion": "Las empanadas tipicas del norte son la mejor entrada para su almuerso o cena mas especial.",
+      "id": 6
+    },
+    {
+      "nombreArticulo": "Asado",
+      "minutos": "120",
+      "imagen": "https://www.cronista.com/files/image/476/476125/630fd144d9ad7.jpg",
+      "categoria": "Plato principal",
+      "descripcion": "El asado es la mejor comida para compartir con la familia o amigos un domingo por la tarde escuchando folklore, y degustando un vinito por que no?",
+      "ingredientes": [
+        "carne",
+        "sal",
+        "chori",
+        "morci"
+      ],
+      "procedimiento": [
+        "preparar el fuego",
+        "salar la carne",
+        "colocar la carne en la parrrilla caliente",
+        "dar vuelta",
+        "sacar y servir"
+      ],
+      "id": 8
     }
   ],
   "usuarios": [

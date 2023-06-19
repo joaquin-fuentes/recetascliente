@@ -43,7 +43,8 @@ const DetalleArticulo = () => {
                                         <li key={index} className="liProcedimiento">{ingrediente}</li>
                                     ))}
                             </ol>
-                        </div>                        <p className="text-white">Tiempo de preparacion: <span className="text-white">1:30hs</span></p>
+                        </div>                    
+                         <p className="text-white">Tiempo de preparacion: <span className="text-white">{articulo.minutos} minutos</span></p>
 
 
                     </article>

@@ -42,7 +42,7 @@ const ItemArticulo = ({ articulo, setArticulos }) => {
             <td>{articulo.id}</td>
             <td>{articulo.nombreArticulo}</td>
             <td>{articulo.categoria}</td>
-            <td>{`${articulo.horas}:${articulo.minutos} hs`}</td>
+            <td>{`${articulo.minutos} minutos`}</td>
             <td className='text-center'>
                 <Link to={`/administrador/editar/${articulo.id}`} className={"btn btn-outline-light m-1"} >Editar</Link>
                 <Button className='m-1' variant="outline-danger" onClick={borrarArticulo}>Borrar</Button>

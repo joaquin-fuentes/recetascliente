@@ -1,6 +1,6 @@
 import { Button, Form, Container, Row, Col, InputGroup } from "react-bootstrap"
-import { useForm } from "react-hook-form";
-// import { consultaCrearArticulo } from "../../helpers/queries";
+import { useForm } from "react-hook-form"; 
+import { consultaCrearArticulo } from "../../helpers/queries";
 import Swal from "sweetalert2";
 import React, { useState } from 'react';
 
@@ -14,27 +14,31 @@ const CrearArticulo = () => {
         reset
     } = useForm();
 
-    // const onSubmit = (productoNuevo) => {
-    //     console.log(productoNuevo)
-    //     console.log("paso la validacion")
-    //     // realizar la peticion que agrewga producto a la api
-    //     consultaCrearArticulo(productoNuevo).then((respuesta)=>{
-    //         if(respuesta.status === 201){
-    //             Swal.fire(
-    //                 'Agregado!',
-    //                 `El producto ${productoNuevo.nombreProducto} fue creado`,
-    //                 'success'
-    //             )
-    //             reset()
-    //         } else{
-    //             Swal.fire(
-    //                 'Error!',
-    //                 `No se pudo procesar su peticion`,
-    //                 'error'
-    //             )
-    //         }
-    //     })
-    // }
+     const onSubmit = (articuloNuevo) => {
+         console.log(articuloNuevo)
+         const articuloNuevoNuevo = {...articuloNuevo, ingredientes:items, procedimiento:itemsProc }
+         console.log(`el producto nuevo con los ingredientes y los procedimientos es : ${articuloNuevoNuevo}`)
+         console.log("paso la validacion")
+         // realizar la peticion que agrewga producto a la api
+         consultaCrearArticulo(articuloNuevoNuevo).then((respuesta)=>{
+             if(respuesta.status === 201){
+                 Swal.fire(
+                     'Agregado!',
+                     `El producto ${articuloNuevoNuevo.nombreArticulo} fue creado`,
+                     'success'
+                 )
+                 reset()
+                 setItems([])
+                 setItemsProc([])
+             } else{
+                 Swal.fire(
+                     'Error!',
+                     `No se pudo procesar su peticion`,
+                     'error'
+                 )
+             }
+         })
+     }
 
     const [itemInputValue, setItemInputValue] = useState('');
     const [items, setItems] = useState([]);
@@ -87,7 +91,7 @@ const CrearArticulo = () => {
         <Container className="main bg-fomrulario my-4 p-5 letraBlanca">
             <h2>Nuevo Articulo</h2>
             <hr />
-            <Form onSubmit={handleSubmit()}>
+            <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group className="mb-3">
                     <Form.Label>Nombre de la receta*</Form.Label>
                     <Form.Control type="text" placeholder="Ej: Cafe" maxLength={30} {
@@ -112,43 +116,19 @@ const CrearArticulo = () => {
                     </Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                    <Form.Label>Tiempo de preparación*</Form.Label>
-                    <Row className="align-items-center">
-                        <Col sm={3} className="my-1">
-                            <InputGroup>
-                                <InputGroup.Text>Horas</InputGroup.Text>
-                                <Form.Control type="number" placeholder="ej: 1" min={0} max={8} value={0}{
-                                    ...register('horas', {
-                                        required: 'El campo es obligatorio',
-                                        pattern: {
-                                            value: /^[0-8]$/,
-                                            message: "Debe ingresar un numero entre 0 y 8"
-                                        }
-                                    })
-                                } />
-                                <Form.Text className="text-danger">
-                                    {errors.horas?.message}
-                                </Form.Text>
-                            </InputGroup>
-                        </Col>
-                        <Col sm={3} className="my-1">
-                            <InputGroup>
-                                <InputGroup.Text>Minutos</InputGroup.Text>
-                                <Form.Control type="number" placeholder="ej: 20" min={0} max={59} value={0} {
+                    <Form.Label>Tiempo de preparación* (minutos)</Form.Label>                       
+                                <Form.Control type="number" placeholder="ej: 20" min={1} max={600}  {
                                     ...register('minutos', {
                                         required: 'El campo es obligatorio',
                                         pattern: {
-                                            value: /^[0-59]$/,
-                                            message: "Debe ingresar un numero entre 0 y 59"
+                                            value: /^(?:[1-9]|[1-9][0-9]{1,2}|600)$/,
+                                            message: "Debe ingresar un numero entre 1 y 600"
                                         }
                                     })
                                 } />
                                 <Form.Text className="text-danger">
                                     {errors.minutos?.message}
                                 </Form.Text>
-                            </InputGroup>
-                        </Col>
-                    </Row>
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Imagen URL*</Form.Label>
@@ -160,13 +140,13 @@ const CrearArticulo = () => {
                                 message: "Este campo debe tener como minimo 5 caracteres"
                             },
                             maxLength: {
-                                value: 250,
-                                message: "Este campo debe tener como maximo 250 caracteres"
+                                value: 600,
+                                message: "Este campo debe tener como maximo 600 caracteres"
                             },
-                            pattern: {
-                                value: /^[a-zA-Z0-9]+\.(png|jpg)$/,
-                                message: "La imagen debe estar en formaro .png o .jpg"
-                            }
+                             pattern: {
+                                 value: /.*\.(jpg|png|jpeg)$/,
+                                 message: "La imagen debe estar en formaro .png o .jpg"
+                             }
                         })
                     } />
                     <Form.Text className="text-danger">
@@ -180,9 +160,9 @@ const CrearArticulo = () => {
                             required: 'Debe seleccionar una categoria',
                         })}>
                         <option value="">Seleccione una opcion</option>
-                        <option value="1">opcion 1</option>
-                        <option value="2">opcion 2</option>
-                        <option value="3">opcion 3</option>
+                        <option value="Plato de entrada">Plato de entrada</option>
+                        <option value="Plato principal">Plato principal</option>
+                        <option value="Postre">Postre</option>
                     </Form.Select>
                     <Form.Text className="text-danger">
                         {errors.categoria?.message}
