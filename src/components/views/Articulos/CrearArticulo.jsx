@@ -121,7 +121,7 @@ const CrearArticulo = () => {
                                     ...register('minutos', {
                                         required: 'El campo es obligatorio',
                                         pattern: {
-                                            value: /^(?:[1-9]|[1-9][0-9]{1,2}|600)$/,
+                                            value: /^(?:[1-9]|[1-9]\d{1,2}|[1-5]\d{2}|600)(?:\.\d+)?$/,
                                             message: "Debe ingresar un numero entre 1 y 600"
                                         }
                                     })

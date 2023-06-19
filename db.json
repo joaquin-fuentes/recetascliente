@@ -22,7 +22,7 @@
     },
     {
       "nombreArticulo": "Flan",
-      "minutos": 0,
+      "minutos": "30",
       "imagen": "https://www.hogarmania.com/archivos/202011/karl6638-flan-expres-xl-1280x720x80xX.jpg",
       "categoria": "Postre",
       "descripcion": "Este plato es super rico, se lo recomiendo, y facil de hacer por supuesto, con lo que tenga ne su heladera",
@@ -35,8 +35,7 @@
       "procedimiento": [
         "hervir la leche 10 minutos",
         "Volcar el sobre de flan",
-        "hervir 20minutos",
-        "servir"
+        "hervir 20minutos"
       ],
       "id": 2
     },
@@ -44,7 +43,7 @@
       "nombreArticulo": "Tamal ",
       "minutos": 20,
       "imagen": "https://st2.depositphotos.com/1692343/5415/i/450/depositphotos_54150499-stock-photo-homemade-corn-and-chicken-tamales.jpg",
-      "categoria": "Postre",
+      "categoria": "Plato de entrada",
       "descripcion": "Este plato es super rico, se lo recomiendo, y facil de hacer por supuesto, con lo que tenga ne su heladera",
       "ingredientes": [
         "etc"
