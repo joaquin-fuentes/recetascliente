@@ -8,7 +8,7 @@ const Articulo = ({articulo}) => {
             <Card.Img variant="top" src={articulo.imagen} className='imagenArticuloInicio' />
             <Card.Body className=''>
                 <Card.Title>{articulo.nombreArticulo}</Card.Title>
-                <Card.Text>
+                <Card.Text className='descripcionArticuloInicio'>
                     {articulo.descripcion}
                 </Card.Text>
                 <NavLink to={`./detalleArticulo/${articulo.id}`} className="btn btn-outline-secondary" >Ver detalle</NavLink>

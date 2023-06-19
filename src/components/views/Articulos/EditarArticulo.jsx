@@ -1,40 +1,52 @@
 import { Button, Form, Container, Row, Col, InputGroup } from "react-bootstrap"
 import { useForm } from "react-hook-form";
-// import { consultaCrearArticulo } from "../../helpers/queries";
+import { consultaEditarArticulo, obtenerArticulo } from "../../helpers/queries";
 import Swal from "sweetalert2";
-import React, { useState } from 'react';
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 
 const EditarArticulo = () => {
-
+    const { id } = useParams()
+    const navegacion = useNavigate()
     const {
         register,
         handleSubmit,
         formState: { errors },
-        reset
+        setValue
     } = useForm();
 
-    // const onSubmit = (productoNuevo) => {
-    //     console.log(productoNuevo)
-    //     console.log("paso la validacion")
-    //     // realizar la peticion que agrewga producto a la api
-    //     consultaCrearArticulo(productoNuevo).then((respuesta)=>{
-    //         if(respuesta.status === 201){
-    //             Swal.fire(
-    //                 'Agregado!',
-    //                 `El producto ${productoNuevo.nombreProducto} fue creado`,
-    //                 'success'
-    //             )
-    //             reset()
-    //         } else{
-    //             Swal.fire(
-    //                 'Error!',
-    //                 `No se pudo procesar su peticion`,
-    //                 'error'
-    //             )
-    //         }
-    //     })
-    // }
+    useEffect(() => {
+        obtenerArticulo(id).then((respuesta) => {
+            setValue("nombreArticulo", respuesta.nombreArticulo)
+            setValue("minutos", respuesta.minutos)
+            setValue("imagen", respuesta.imagen)
+            setValue("categoria", respuesta.categoria)
+            setValue("descripcion", respuesta.descripcion)
+            setItems(respuesta.ingredientes)
+            setItemsProc(respuesta.procedimiento)
+        })
+
+    }, [])
+
+    const onSubmit = (articuloNuevo) => {
+        console.log(articuloNuevo)
+        console.log("paso la validacion")
+        const articuloNuevoNuevo = { ...articuloNuevo, ingredientes: items, procedimiento: itemsProc }
+        // realizar la peticion que agrewga articulo a la api
+        consultaEditarArticulo(articuloNuevoNuevo, id).then((respuesta) => {
+            if (respuesta && respuesta.status === 200) {
+                Swal.fire("Producto actualizado",
+                    `El producto: ${articuloNuevoNuevo.nombreArticulo} fue actualizado corretamente`,
+                    "success")
+                navegacion("/administrador")
+            } else {
+                Swal.fire("Ocurrio un error",
+                    `El producto: ${articuloNuevoNuevo.nombreArticulo} NO fue actualizado. Intente esta operacion luego`,
+                    "error")
+            }
+        })
+    }
 
     const [itemInputValue, setItemInputValue] = useState('');
     const [items, setItems] = useState([]);
@@ -87,7 +99,7 @@ const EditarArticulo = () => {
         <Container className="main bg-fomrulario my-4 p-5 letraBlanca">
             <h2>Editar Articulo</h2>
             <hr />
-            <Form onSubmit={handleSubmit()}>
+            <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group className="mb-3">
                     <Form.Label>Nombre de la receta*</Form.Label>
                     <Form.Control type="text" placeholder="Ej: Cafe" maxLength={30} {
@@ -112,43 +124,19 @@ const EditarArticulo = () => {
                     </Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3">
-                    <Form.Label>Tiempo de preparación*</Form.Label>
-                    <Row className="align-items-center">
-                        <Col sm={3} className="my-1">
-                            <InputGroup>
-                                <InputGroup.Text>Horas</InputGroup.Text>
-                                <Form.Control type="number" placeholder="ej: 1" min={0} max={8} value={0}{
-                                    ...register('horas', {
-                                        required: 'El campo es obligatorio',
-                                        pattern: {
-                                            value: /^[0-8]$/,
-                                            message: "Debe ingresar un numero entre 0 y 8"
-                                        }
-                                    })
-                                } />
-                                <Form.Text className="text-danger">
-                                    {errors.horas?.message}
-                                </Form.Text>
-                            </InputGroup>
-                        </Col>
-                        <Col sm={3} className="my-1">
-                            <InputGroup>
-                                <InputGroup.Text>Minutos</InputGroup.Text>
-                                <Form.Control type="number" placeholder="ej: 20" min={0} max={59} value={0} {
-                                    ...register('minutos', {
-                                        required: 'El campo es obligatorio',
-                                        pattern: {
-                                            value: /^[0-59]$/,
-                                            message: "Debe ingresar un numero entre 0 y 59"
-                                        }
-                                    })
-                                } />
-                                <Form.Text className="text-danger">
-                                    {errors.minutos?.message}
-                                </Form.Text>
-                            </InputGroup>
-                        </Col>
-                    </Row>
+                    <Form.Label>Tiempo de preparación* (minutos)</Form.Label>
+                    <Form.Control type="number" placeholder="ej: 20" min={1} max={600}  {
+                        ...register('minutos', {
+                            required: 'El campo es obligatorio',
+                            pattern: {
+                                value: /^(?:[1-9]|[1-9][0-9]{1,2}|600)$/,
+                                message: "Debe ingresar un numero entre 1 y 600"
+                            }
+                        })
+                    } />
+                    <Form.Text className="text-danger">
+                        {errors.minutos?.message}
+                    </Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Imagen URL*</Form.Label>
@@ -160,11 +148,11 @@ const EditarArticulo = () => {
                                 message: "Este campo debe tener como minimo 5 caracteres"
                             },
                             maxLength: {
-                                value: 250,
-                                message: "Este campo debe tener como maximo 250 caracteres"
+                                value: 600,
+                                message: "Este campo debe tener como maximo 600 caracteres"
                             },
                             pattern: {
-                                value: /^[a-zA-Z0-9]+\.(png|jpg)$/,
+                                value: /.*\.(jpg|png|jpeg)$/,
                                 message: "La imagen debe estar en formaro .png o .jpg"
                             }
                         })
@@ -180,9 +168,9 @@ const EditarArticulo = () => {
                             required: 'Debe seleccionar una categoria',
                         })}>
                         <option value="">Seleccione una opcion</option>
-                        <option value="1">opcion 1</option>
-                        <option value="2">opcion 2</option>
-                        <option value="3">opcion 3</option>
+                        <option value="Plato de entrada">Plato de entrada</option>
+                        <option value="Plato principal">Plato principal</option>
+                        <option value="Postre">Postre</option>
                     </Form.Select>
                     <Form.Text className="text-danger">
                         {errors.categoria?.message}
@@ -225,7 +213,7 @@ const EditarArticulo = () => {
                         {items.map((item, index) => (
                             <li key={index}>
                                 {item}
-                                <button className="btn btn-outline-danger mx-3 my-1" onClick={() => handleEliminarItemClick(index)}>
+                                <button type="button" className="btn btn-outline-danger mx-3 my-1" onClick={() => handleEliminarItemClick(index)}>
                                     Eliminar
                                 </button>
                             </li>
@@ -246,7 +234,7 @@ const EditarArticulo = () => {
                         {itemsProc.map((item, index) => (
                             <li key={index}>
                                 {item}
-                                <button className="btn btn-outline-danger my-1 mx-3" onClick={() => handleEliminarItemClickProc(index)}>
+                                <button type="button" className="btn btn-outline-danger my-1 mx-3" onClick={() => handleEliminarItemClickProc(index)}>
                                     Eliminar
                                 </button>
                             </li>
