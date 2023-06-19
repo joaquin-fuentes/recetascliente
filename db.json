@@ -1,53 +1,96 @@
 {
-    "articulos": [
-      {
-        "nombreArticulo": "Milanesa con pure",
-        "horas": 1,
-        "minutos": 20,
-        "imagen": "https://img-global.cpcdn.com/recipes/e3a271511d89f044/400x400cq70/photo.jpg",
-        "categoria": "Plato principal",
-        "ingredientes": ["sal","pimienta","200grs manteca", "etc"],
-        "procedimiento":["comprar las cosas", "pelar las papas", "hervir 20minutos", "servir"],
-        "id": 1
-      },
-      {
-        "nombreArticulo": "Tortilla de papa",
-        "horas": 1,
-        "minutos": 30,
-        "imagen": "https://lacocinadefrabisa.lavozdegalicia.es/wp-content/uploads/2019/05/tortilla-espa%C3%B1ola.jpg",
-        "categoria": "Plato principal",
-        "ingredientes": ["sal","lechuga","200grs organo", "etc"],
-        "procedimiento":["pelar las papas", "hervir 20minutos", "calentar a fuego lento", "servir"],
-        "id": 2
-      },
-      {
-        "nombreArticulo": "Flan",
-        "horas": 1,
-        "minutos": 0,
-        "imagen": "https://www.hogarmania.com/archivos/202011/karl6638-flan-expres-xl-1280x720x80xX.jpg",
-        "categoria": "Postre",
-        "ingredientes": ["Leche","Flan para preparar","200grs azucar", "etc"],
-        "procedimiento":["hervir la leche 10 minutos", "Volcar el sobre de flan", "hervir 20minutos", "servir"],
-        "id": 3
-      },
-      {
-        "nombreArticulo": "Tamal",
-        "horas": 1,
-        "minutos": 20,
-        "imagen": "https://st2.depositphotos.com/1692343/5415/i/450/depositphotos_54150499-stock-photo-homemade-corn-and-chicken-tamales.jpg",
-        "categoria": "Plato de entrada",
-        "ingredientes": ["zapallo","Chala de choclo","200grs maizena", "etc"],
-        "procedimiento":["hervir zapallo", "pelar las papas", "hervir 20minutos", "servir"],
-        "id": 4
-      }
-     
-    ],
-    "usuarios": [
-      {
-        "id": 1,
-        "nombreUsuario": "Admin",
-        "email": "admin@rollingcode.com",
-        "password": "123456"
-      }
-    ]
-  }
+  "articulos": [
+    {
+      "nombreArticulo": "Milanesa con pure",
+      "horas": 1,
+      "minutos": 20,
+      "imagen": "https://img-global.cpcdn.com/recipes/e3a271511d89f044/400x400cq70/photo.jpg",
+      "categoria": "Plato principal",
+      "descripcion": "Este plato es super rico, se lo recomiendo, y facil de hacer por supuesto, con lo que tenga ne su heladera",
+      "ingredientes": [
+        "sal",
+        "pimienta",
+        "200grs manteca",
+        "etc"
+      ],
+      "procedimiento": [
+        "comprar las cosas",
+        "pelar las papas",
+        "hervir 20minutos",
+        "servir"
+      ],
+      "id": 1
+    },
+    {
+      "nombreArticulo": "Flan",
+      "horas": 1,
+      "minutos": 0,
+      "imagen": "https://www.hogarmania.com/archivos/202011/karl6638-flan-expres-xl-1280x720x80xX.jpg",
+      "categoria": "Postre",
+      "descripcion": "Este plato es super rico, se lo recomiendo, y facil de hacer por supuesto, con lo que tenga ne su heladera",
+      "ingredientes": [
+        "Leche",
+        "Flan para preparar",
+        "200grs azucar",
+        "etc"
+      ],
+      "procedimiento": [
+        "hervir la leche 10 minutos",
+        "Volcar el sobre de flan",
+        "hervir 20minutos",
+        "servir"
+      ],
+      "id": 2
+    },
+    {
+      "nombreArticulo": "Flan",
+      "horas": 1,
+      "minutos": 0,
+      "imagen": "https://www.hogarmania.com/archivos/202011/karl6638-flan-expres-xl-1280x720x80xX.jpg",
+      "categoria": "Postre",
+      "descripcion": "Este plato es super rico, se lo recomiendo, y facil de hacer por supuesto, con lo que tenga ne su heladera",
+      "ingredientes": [
+        "Leche",
+        "Flan para preparar",
+        "200grs azucar",
+        "etc"
+      ],
+      "procedimiento": [
+        "hervir la leche 10 minutos",
+        "Volcar el sobre de flan",
+        "hervir 20minutos",
+        "servir"
+      ],
+      "id": 3
+    },
+    {
+      "nombreArticulo": "Tamal",
+      "horas": 1,
+      "minutos": 20,
+      "imagen": "https://st2.depositphotos.com/1692343/5415/i/450/depositphotos_54150499-stock-photo-homemade-corn-and-chicken-tamales.jpg",
+      "categoria": "Plato de entrada",
+      "descripcion": "Este plato es super rico, se lo recomiendo, y facil de hacer por supuesto, con lo que tenga ne su heladera",
+      "ingredientes": [
+        "zapallo",
+        "Chala de choclo",
+        "200grs maizena",
+        "etc"
+      ],
+      "procedimiento": [
+        "hervir zapallo",
+        "pelar las papas",
+        "hervir 20minutos",
+        "servir"
+      ],
+      "id": 4
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nombreUsuario": "Admin",
+      "email": "admin@rollingcode.com",
+      "password": "123456"
+    }
+  ]
+}

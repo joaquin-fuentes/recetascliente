@@ -30,7 +30,7 @@ const App = () => {
           </RutasProtegidas>
         }></Route>
 
-        <Route exact path="/detalleArticulo" element={<DetalleArticulo></DetalleArticulo>} ></Route>
+        <Route exact path="/detalleArticulo/:id" element={<DetalleArticulo></DetalleArticulo>} ></Route>
         <Route path="*" element={<Error404></Error404>} ></Route>
       </Routes>
       <Footer></Footer>

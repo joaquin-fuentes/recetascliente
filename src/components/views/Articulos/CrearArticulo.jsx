@@ -190,6 +190,29 @@ const CrearArticulo = () => {
                     </Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3">
+                    <Form.Label>Descripcion*</Form.Label>
+                    <Form.Control
+                        as="textarea"
+                        placeholder="Ingrese una descripcion del articulo"
+                        style={{ height: '100px' }}
+                        maxLength={500} {
+                        ...register('descripcion', {
+                            required: 'El campo es obligatorio',
+                            minLength: {
+                                value: 5,
+                                message: "Este campo debe tener como minimo 5 caracteres"
+                            },
+                            maxLength: {
+                                value: 500,
+                                message: "Este campo debe tener como maximo 500 caracteres"
+                            },
+                        })
+                        } />
+                    <Form.Text className="text-danger">
+                        {errors.descripcion?.message}
+                    </Form.Text>
+                </Form.Group>
+                <Form.Group className="mb-3">
                     <Form.Label>Ingredientes*</Form.Label>
                     <Form.Control
                         className="h-100"

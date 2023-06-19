@@ -2,7 +2,8 @@ import React from 'react';
 import { Container, Form, Row, Col, InputGroup, Button } from 'react-bootstrap';
 import ArticulosInicio from './Articulos/ArticulosInicio';
 
-const Inicio = () => {
+
+const Inicio = () => {   
     return (
         <Container className='main bg-menu text-center my-4 p-3'>
             <h1 className='letraBlanca'>¡Bienvenidos a Delicias en la Mesa!</h1>
