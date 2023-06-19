@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { obtenerArticulos } from "../../helpers/queries";
 
 
-const ArticulosInicio = () => {
+const ArticulosInicio = ({categoriaBuscada}) => {
     const [articulos, setArticulos] = useState([])
 
     // const navegacion = useNavigate()
@@ -24,9 +24,12 @@ const ArticulosInicio = () => {
             <Row>
                 {
                     articulos.map((articulo) => {
-                        return <Col sm={6} lg={4} key={articulo.id} >
-                                  <Articulo articulo={articulo}></Articulo>
-                               </Col>
+                        if(categoriaBuscada === articulo.categoria || categoriaBuscada === ""){
+                            return <Col sm={6} lg={4} key={articulo.id} >
+                                       <Articulo articulo={articulo}></Articulo>
+                                   </Col>
+                        }
+                        
                     })
                 }
             </Row>
