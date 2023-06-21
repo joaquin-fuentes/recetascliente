@@ -1,4 +1,4 @@
-# reactMod3-cafecito
+# reactMod3-RecetasDeCocina
 En este repositorio se encuentra el Ejerciico 14 del TP de react: "Recetas de cocina"
 
 # Instrucciones de uso
