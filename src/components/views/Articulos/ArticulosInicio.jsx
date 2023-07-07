@@ -20,12 +20,12 @@ const ArticulosInicio = ({categoriaBuscada}) => {
         })
     }, [])
     return (
-        <CardGroup>
-            <Row>
+        <CardGroup className="d-flex justify-content-center">
+            <Row className="w-100">
                 {
                     articulos.map((articulo) => {
                         if(categoriaBuscada === articulo.categoria || categoriaBuscada === ""){
-                            return <Col sm={6} lg={4} key={articulo.id} >
+                            return <Col sm={6} lg={4} key={articulo._id} >
                                        <Articulo articulo={articulo}></Articulo>
                                    </Col>
                         }

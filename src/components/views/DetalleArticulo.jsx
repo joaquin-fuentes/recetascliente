@@ -24,10 +24,10 @@ const DetalleArticulo = () => {
                 </Col>
                 <Col xs={12} md={6} >
                     <article className="p-2">
-                        <h3>{articulo.nombreArticulo}</h3>
+                        <h3>{articulo.receta}</h3>
                         <hr />
-                        <p className="text-white">Categoria: <span className="text-white">{articulo.categoria}</span></p>
-                        <p className="text-white">Categoria: <span className="text-white">{articulo.descripcion}</span></p>
+                        <p className="text-white ">Categoria: <span className="text-white"> {articulo.categoria}</span></p>
+                        <p className="text-white ">Descripcion: <span className="text-white"> {articulo.descripcion}</span></p>
                         <div className="text-white">Ingredientes:
                             <ul className="text-white p-0" >
                                 {Array.isArray(articulo.ingredientes) &&

@@ -40,20 +40,6 @@
       "id": 2
     },
     {
-      "nombreArticulo": "Tamal ",
-      "minutos": 20,
-      "imagen": "https://st2.depositphotos.com/1692343/5415/i/450/depositphotos_54150499-stock-photo-homemade-corn-and-chicken-tamales.jpg",
-      "categoria": "Plato de entrada",
-      "descripcion": "Este plato es super rico, se lo recomiendo, y facil de hacer por supuesto, con lo que tenga ne su heladera",
-      "ingredientes": [
-        "etc"
-      ],
-      "procedimiento": [
-        "hervir 20minutos"
-      ],
-      "id": 4
-    },
-    {
       "nombreArticulo": "Pizza",
       "minutos": "120",
       "imagen": "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg",

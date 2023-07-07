@@ -19,7 +19,7 @@ const ItemArticulo = ({ articulo, setArticulos }) => {
             if (result.isConfirmed) {
 
                 // aqui tengo que hacer la peticion DELETE 
-                consultaBorrarArticulo(articulo.id).then((respuesta) => {
+                consultaBorrarArticulo(articulo._id).then((respuesta) => {
                     if (respuesta.status === 200) {
                         Swal.fire(
                             'Eliminado!',
@@ -39,12 +39,12 @@ const ItemArticulo = ({ articulo, setArticulos }) => {
 
     return (
         <tr>
-            <td>{articulo.id}</td>
-            <td>{articulo.nombreArticulo}</td>
+            <td>{articulo._id}</td>
+            <td>{articulo.receta}</td>
             <td>{articulo.categoria}</td>
             <td>{`${articulo.minutos} minutos`}</td>
             <td className='text-center'>
-                <Link to={`/administrador/editar/${articulo.id}`} className={"btn btn-outline-light m-1"} >Editar</Link>
+                <Link to={`/administrador/editar/${articulo._id}`} className={"btn btn-outline-light m-1"} >Editar</Link>
                 <Button className='m-1' variant="outline-danger" onClick={borrarArticulo}>Borrar</Button>
             </td>
         </tr>

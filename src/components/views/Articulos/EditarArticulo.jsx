@@ -18,7 +18,7 @@ const EditarArticulo = () => {
 
     useEffect(() => {
         obtenerArticulo(id).then((respuesta) => {
-            setValue("nombreArticulo", respuesta.nombreArticulo)
+            setValue("receta", respuesta.receta)
             setValue("minutos", respuesta.minutos)
             setValue("imagen", respuesta.imagen)
             setValue("categoria", respuesta.categoria)
@@ -37,12 +37,12 @@ const EditarArticulo = () => {
         consultaEditarArticulo(articuloNuevoNuevo, id).then((respuesta) => {
             if (respuesta && respuesta.status === 200) {
                 Swal.fire("Producto actualizado",
-                    `El producto: ${articuloNuevoNuevo.nombreArticulo} fue actualizado corretamente`,
+                    `El producto: ${articuloNuevoNuevo.receta} fue actualizado corretamente`,
                     "success")
                 navegacion("/administrador")
             } else {
                 Swal.fire("Ocurrio un error",
-                    `El producto: ${articuloNuevoNuevo.nombreArticulo} NO fue actualizado. Intente esta operacion luego`,
+                    `El producto: ${articuloNuevoNuevo.receta} NO fue actualizado. Intente esta operacion luego`,
                     "error")
             }
         })
@@ -103,7 +103,7 @@ const EditarArticulo = () => {
                 <Form.Group className="mb-3">
                     <Form.Label>Nombre de la receta*</Form.Label>
                     <Form.Control type="text" placeholder="Ej: Cafe" maxLength={30} {
-                        ...register('nombreArticulo', {
+                        ...register('receta', {
                             required: 'El campo es obligatorio',
                             minLength: {
                                 value: 2,
@@ -120,7 +120,7 @@ const EditarArticulo = () => {
                         })
                     } />
                     <Form.Text className="text-danger">
-                        {errors.nombreArticulo?.message}
+                        {errors.receta?.message}
                     </Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3">

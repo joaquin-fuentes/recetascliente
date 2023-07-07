@@ -7,7 +7,7 @@ export const login = async (usuario)=>{
     
     console.log(usuario)
     try {
-        const respuesta = await fetch(URL_USUARIO);
+        const respuesta = await fetch(`${URL_USUARIO}/usuarios`);
         const listaUsuarios = await respuesta.json();
         console.log(listaUsuarios)
         //buscar si algun usuario coincide con el que recibi por parametros
@@ -34,7 +34,7 @@ export const login = async (usuario)=>{
 
 export const obtenerArticulos = async ()=>{
     try {
-        const respuesta = await fetch(URL_ARTICULO)
+        const respuesta = await fetch(`${URL_ARTICULO}/recetas`)
         const listaArticulos = await respuesta.json()
         return listaArticulos
 
@@ -47,7 +47,7 @@ export const obtenerArticulos = async ()=>{
 
 export const obtenerArticulo = async (id)=>{
     try {
-        const respuesta = await fetch(`${URL_ARTICULO}/${id}`)
+        const respuesta = await fetch(`${URL_ARTICULO}/recetas/${id}`)
         const articuloEditar = await respuesta.json()
         return articuloEditar
 
@@ -59,7 +59,7 @@ export const obtenerArticulo = async (id)=>{
 
 export const consultaBorrarArticulo = async (id)=>{
     try {
-        const respuesta = await fetch(`${URL_ARTICULO}/${id}` , {
+        const respuesta = await fetch(`${URL_ARTICULO}/recetas/${id}` , {
             method:"DELETE"
         });
         // const listaArticulos = await respuesta.json()
@@ -73,7 +73,7 @@ export const consultaBorrarArticulo = async (id)=>{
 
 export const consultaCrearArticulo = async (articulo)=>{
     try {
-        const respuesta = await fetch(URL_ARTICULO, {
+        const respuesta = await fetch(`${URL_ARTICULO}/recetas`, {
             method: "POST",
             headers: {
                 "Content-Type":"application/json"
@@ -90,7 +90,7 @@ export const consultaCrearArticulo = async (articulo)=>{
 
 export const consultaEditarArticulo = async (articulo, id)=>{
     try {
-        const respuesta = await fetch(URL_ARTICULO+"/"+id, {
+        const respuesta = await fetch(URL_ARTICULO+"/recetas/"+id, {
             method: "PUT",
             headers: {
                 "Content-Type":"application/json"

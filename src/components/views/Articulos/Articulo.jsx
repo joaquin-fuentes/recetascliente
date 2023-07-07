@@ -7,11 +7,11 @@ const Articulo = ({articulo}) => {
         <Card className='m-1 opacidadCard' bg='dark' text='light'>
             <Card.Img variant="top" src={articulo.imagen} className='imagenArticuloInicio' />
             <Card.Body className=''>
-                <Card.Title>{articulo.nombreArticulo}</Card.Title>
+                <Card.Title>{articulo.receta}</Card.Title>
                 <Card.Text className='descripcionArticuloInicio'>
                     {articulo.descripcion}
                 </Card.Text>
-                <NavLink to={`./detalleArticulo/${articulo.id}`} className="btn btn-outline-secondary" >Ver detalle</NavLink>
+                <NavLink to={`./detalleArticulo/${articulo._id}`} className="btn btn-outline-secondary" >Ver detalle</NavLink>
             </Card.Body>
         </Card>
     );
