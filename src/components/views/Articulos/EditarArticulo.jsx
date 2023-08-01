@@ -7,6 +7,10 @@ import { useParams, useNavigate } from "react-router-dom";
 
 
 const EditarArticulo = () => {
+
+    const usuarioDelSessionStorage = JSON.parse(sessionStorage.getItem("usuarioLogueado")) || {}
+    const [usuarioLogueado, setUsuarioLogueado] = useState(usuarioDelSessionStorage)
+
     const { id } = useParams()
     const navegacion = useNavigate()
     const {
@@ -30,22 +34,30 @@ const EditarArticulo = () => {
     }, [])
 
     const onSubmit = (articuloNuevo) => {
-        console.log(articuloNuevo)
-        console.log("paso la validacion")
-        const articuloNuevoNuevo = { ...articuloNuevo, ingredientes: items, procedimiento: itemsProc }
-        // realizar la peticion que agrewga articulo a la api
-        consultaEditarArticulo(articuloNuevoNuevo, id).then((respuesta) => {
-            if (respuesta && respuesta.status === 200) {
-                Swal.fire("Producto actualizado",
-                    `El producto: ${articuloNuevoNuevo.receta} fue actualizado corretamente`,
-                    "success")
-                navegacion("/administrador")
-            } else {
-                Swal.fire("Ocurrio un error",
-                    `El producto: ${articuloNuevoNuevo.receta} NO fue actualizado. Intente esta operacion luego`,
-                    "error")
-            }
-        })
+        if (usuarioLogueado.email != "admin@gmail.com") {
+            Swal.fire(
+                'Error!',
+                `Su usuario adminsitrador no tiene permisos para crearo, borrar, o editar articulos.`,
+                'warning'
+            )
+        } else {
+            console.log(articuloNuevo)
+            console.log("paso la validacion")
+            const articuloNuevoNuevo = { ...articuloNuevo, ingredientes: items, procedimiento: itemsProc }
+            // realizar la peticion que agrewga articulo a la api
+            consultaEditarArticulo(articuloNuevoNuevo, id).then((respuesta) => {
+                if (respuesta && respuesta.status === 200) {
+                    Swal.fire("Producto actualizado",
+                        `El producto: ${articuloNuevoNuevo.receta} fue actualizado corretamente`,
+                        "success")
+                    navegacion("/administrador")
+                } else {
+                    Swal.fire("Ocurrio un error",
+                        `El producto: ${articuloNuevoNuevo.receta} NO fue actualizado. Intente esta operacion luego`,
+                        "error")
+                }
+            })
+        }
     }
 
     const [itemInputValue, setItemInputValue] = useState('');
@@ -223,7 +235,7 @@ const EditarArticulo = () => {
                 <Form.Group className="mb-3">
                     <Form.Label>Prodecimiento*</Form.Label>
                     <Form.Control
-                            className="h-100"
+                        className="h-100"
 
                         type="text"
                         value={itemInputValueProc}

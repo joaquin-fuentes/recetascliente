@@ -2,8 +2,12 @@ import { Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import Swal from "sweetalert2"
 import {consultaBorrarArticulo, obtenerArticulos} from "../../helpers/queries"
+import { useState } from "react"
 
 const ItemArticulo = ({ articulo, setArticulos }) => {
+
+    const usuarioDelSessionStorage = JSON.parse(sessionStorage.getItem("usuarioLogueado")) || {}
+    const [usuarioLogueado, setUsuarioLogueado] = useState(usuarioDelSessionStorage)
 
     const borrarArticulo = () => {
         Swal.fire({
@@ -17,7 +21,13 @@ const ItemArticulo = ({ articulo, setArticulos }) => {
             cancelButtonText: "Cancelar"
         }).then((result) => {
             if (result.isConfirmed) {
-
+                if (usuarioLogueado.email != "admin@gmail.com") {
+                    Swal.fire(
+                        'Error!',
+                        `Su usuario adminsitrador no tiene permisos para crearo, borrar, o editar articulos.`,
+                        'warning'
+                    )
+                } else {
                 // aqui tengo que hacer la peticion DELETE 
                 consultaBorrarArticulo(articulo._id).then((respuesta) => {
                     if (respuesta.status === 200) {
@@ -32,7 +42,7 @@ const ItemArticulo = ({ articulo, setArticulos }) => {
                     } else {
                         Swal.fire("Se produjo un error", "Error, intentelo mas tarde ", "error")
                     }
-                })
+                })}
             }
         })
     }
