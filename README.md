@@ -1,5 +1,6 @@
 # 👨‍🍳 *Proyecto Recetas de cocina* 👨‍🍳
 
+En este repositorio se encuentra el FrontEnd del proyecto.
 
 ## Descripción del Proyecto 📃
 
@@ -17,7 +18,6 @@ Credenciales para poder ver panel de administrador:
 - HTML
 - CSS
 - BootStrap
-- Node.js
 - React
 - Backend: https://github.com/joaquin-fuentes/recetasservidor
 
