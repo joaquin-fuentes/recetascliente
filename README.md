@@ -1,12 +1,22 @@
-# reactMod3-RecetasDeCocina
-En este repositorio se encuentra el FRONT-END del ejercicio: "Recetas de cocina"
-
-# Instrucciones de uso
-- Para poder ver el ejercicio es necesario clonar el repositorio, luego acceder a la carpeta del proyecto desde la terminal e ingresar los siguientes comandos
-- npm install
-- npm run dev
-- Tambien debe levantar el servidor, siguiendo las instrucciones del archivo readme del servidor de Recetas de cocina
+# 👨‍🍳 *Proyecto Recetas de cocina* 👨‍🍳
 
 
-# Integrantes del proyecto
-Fuentes Joaquín Alberto
+## Descripción del Proyecto 📃
+
+*Este proyecto consiste en un blog de recetas de cocina, en el que se puede ver las recetas con el detalle de cada una. Tambien cuenta con un filtro de busqueda para buscar por categoria. Un usuario administrador puede ver y administrar todas las recetas (crear, editar, borrar)*
+
+## Tecnologías utilizadas
+- JavaScript
+- HTML
+- CSS
+- BootStrap
+- Node.js
+- React
+- Backend: https://github.com/joaquin-fuentes/recetasservidor
+
+
+## Sitio Web 💻
+Link del sitio : https://bondia-restaurant.netlify.app/](https://recetasdecocina-joaquinfuentes.netlify.app/
+
+### Autor 👣
++ Joaquin Alberto Fuentes [GitHub](https://github.com/joaquin-fuentes)
