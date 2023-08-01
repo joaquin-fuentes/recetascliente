@@ -16,7 +16,7 @@
 
 
 ## Sitio Web 💻
-Link del sitio : https://bondia-restaurant.netlify.app/](https://recetasdecocina-joaquinfuentes.netlify.app/
+Link del sitio : https://recetasdecocina-joaquinfuentes.netlify.app/
 
 ### Autor 👣
 + Joaquin Alberto Fuentes [GitHub](https://github.com/joaquin-fuentes)
